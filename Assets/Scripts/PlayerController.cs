@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // allows for coin audio to be played due to player
+    public AudioSource coinAudioSource;
+
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
 
@@ -119,5 +122,20 @@ public class PlayerController : MonoBehaviour
 
         // If any corner is grounded, the object is grounded
         return (grounded1 || grounded2 || grounded3 || grounded4);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        // Check if we ran into a coin
+        if(collider.gameObject.CompareTag("Coin"))
+        {
+            print("Grabbing coin..");
+
+            // Play coin collection sound
+            coinAudioSource.Play();
+
+            // Destroy coin
+            Destroy(collider.gameObject);
+        }
     }
 }

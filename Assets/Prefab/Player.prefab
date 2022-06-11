@@ -127,5 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09757c39c669b4422b6fa08485961390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinAudioSource: {fileID: 0}
   walkSpeed: 8
   jumpSpeed: 7
