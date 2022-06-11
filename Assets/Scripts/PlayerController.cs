@@ -131,6 +131,9 @@ public class PlayerController : MonoBehaviour
         {
             print("Grabbing coin..");
 
+            // Increase score
+            GameManager.instance.IncreaseScore(1);
+
             // Play coin collection sound
             coinAudioSource.Play();
 
