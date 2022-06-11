@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     // Player score
     public int score = 0;
 
+    // High score
+    public int highScore = 0;
+
     // Called when the object is initialized
     void Awake()
     {
@@ -40,5 +43,11 @@ public class GameManager : MonoBehaviour
 
         // Show the new score in the console
         print("New Score: " + score.ToString());
+
+        if(score > highScore)
+        {
+            highScore = score;
+            print("New high score: " + highScore);
+        }
     }
 }
