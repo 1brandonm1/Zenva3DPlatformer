@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // access the HUD
+    public HudManager hud;
+
     // allows for coin audio to be played due to player
     public AudioSource coinAudioSource;
 
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
         // get the player collider
         coll = GetComponent<Collider>();
+
+        // refresh the HUD
+        hud.Refresh();
     }
 
     // Update is called once per frame
@@ -133,6 +139,9 @@ public class PlayerController : MonoBehaviour
 
             // Increase score
             GameManager.instance.IncreaseScore(1);
+
+            // Refresh the HUD
+            hud.Refresh();
 
             // Play coin collection sound
             coinAudioSource.Play();
