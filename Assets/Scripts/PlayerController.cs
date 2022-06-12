@@ -146,5 +146,13 @@ public class PlayerController : MonoBehaviour
             // Game over
             print("game over");
         }
+        else if (collider.gameObject.CompareTag("Goal"))
+        {
+            // Next level
+            print("next level");
+
+            // Increase level (not stated in tutorial)
+            GameManager.instance.IncreaseLevel();
+        }
     }
 }

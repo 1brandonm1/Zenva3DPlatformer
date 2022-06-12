@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class GameManager : MonoBehaviour
 
     // High score
     public int highScore = 0;
+
+    // Level, starting in level 1
+    public int currentLevel = 1;
+
+    // Highest level available in the game
+    public int highestLevel = 2;
 
     // Called when the object is initialized
     void Awake()
@@ -42,12 +49,39 @@ public class GameManager : MonoBehaviour
         score += amount;
 
         // Show the new score in the console
-        print("New Score: " + score.ToString());
+        print("New score: " + score.ToString());
 
         if(score > highScore)
         {
             highScore = score;
             print("New high score: " + highScore);
         }
+    }
+
+    // Restart game. Refresh previous score and send back to level 1
+    public void Reset()
+    {
+        // Reset the score
+        score = 0;
+
+        // Set the current level to 1
+        currentLevel = 1;
+
+        // Load corresponding scene (level 1 or "splash screen" scene)
+        SceneManager.LoadScene("Level" + currentLevel);
+    }
+
+    // Go to the next level
+    public void IncreaseLevel()
+    {
+        if(currentLevel < highestLevel)
+        {
+            currentLevel++;
+        }
+        else
+        {
+            currentLevel = 1;
+        }
+        SceneManager.LoadScene("Level" + currentLevel);
     }
 }
