@@ -140,5 +140,11 @@ public class PlayerController : MonoBehaviour
             // Destroy coin
             Destroy(collider.gameObject);
         }
+
+        else if (collider.gameObject.CompareTag("Enemy"))
+        {
+            // Game over
+            print("game over");
+        }
     }
 }
