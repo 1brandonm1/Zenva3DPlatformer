@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -154,6 +155,8 @@ public class PlayerController : MonoBehaviour
         {
             // Game over
             print("game over");
+
+            SceneManager.LoadScene("GameOver");
         }
         else if (collider.gameObject.CompareTag("Goal"))
         {
